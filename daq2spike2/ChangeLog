@@ -1,0 +1,79 @@
+2020-02-17  dshuman@usf.edu
+
+	* Lots of files: add in gpl & licensing info to play nice with github.
+
+2019-12-02  dshuman@usf.edu
+
+	* configure.ac: Remove check for mxe cross dev, only edt2spike2 needed ti.
+	* configure.ac: Bump to 1.0.9. 
+
+2019-11-27  dshuman@usf.edu
+
+	* Makefile.am: Move edt2spike2 to usfsim. Makes more sense to package it
+	with sim stuff.
+
+2019-11-26  dshuman@usf.edu
+
+	* Makefile.am: Mod to create a statically linked Win version of edt2spike2
+	so users don't have to deal with a .dll library file. Also, when checking
+	for libson64, added found action. If the yes field is blank, it adds
+	-lson64 to all of the targets, only a couple need it, and on Debian, even
+	if the target does not need the lib, the linker complains that it cannot
+	find pthread refs. Not on Ubuntun? Different tool versions?
+	* configure.ac: Bump to 1.0.8.
+	* Makefile.am: Discover I really do need to package son64 in its own
+	package because usfsim also needs it, and I can't just refer to some stuff
+	outside of the source tree to build the package. Make it so.
+
+2019-08-02  dale@health.usf.edu
+
+	* cyg2daq.cpp: Add in check for zero sample value and force it to one. Zero
+	is forbidden value.
+	* configure.ac: Bump to 1.0.6.
+	* cyg2daq.cpp: The zero fix was wrong, maybe it is correct now.
+	* configure.ac: Bump to 1.0.7.
+
+2019-06-27  dale@health.usf.edu
+
+	* configure.ac: add in fortran support
+	* Makefile.am: add in fortran support
+	* anfixbdt4spike2.f: add to the collection. 
+	* configure.ac: oops, already released 1.0.4,bump to 1.0.5
+
+2019-06-25  dale@health.usf.edu
+
+	* print_cygdate.cpp: Mod to use correct century in year string.
+
+2019-06-14  dale@health.usf.edu
+
+	* daq2spike2.cpp: add in file permission settings like in edt2spike2.cpp.
+
+2019-06-11  dale@health.usf.edu
+
+	* daq2spike2.cpp: Cygnus tape and datamax recordings do not have 65-128
+	files, so make these optional.
+	* configure.ac: bump to 1.0.4 ahead of release.
+
+2019-05-21  dale@health.usf.edu
+
+	* daq2spike2.cpp: add to package.
+	* cyg2daq.cpp: add to package.
+	* configure.ac: bump to 1.0.3.
+	* cyg2daq.cpp: Some clean up and fix breaking bug in last release. Time for
+	a new one.
+
+2019-04-30  dale@health.usf.edu
+
+	* Makefile.am: Add edt2spike2.cpp to package.
+	* edt2spike2.cpp: Add to package.
+	* configure.ac: bump to 1.0.1. Note that all excutables in this package
+	will have the save version, even if there was no changes for some of them.
+	* edt2spike2.cpp: Post-release, correct misleading text, no functional
+	change.
+	* edt2spike2.cpp: Change permissions to output file. Default is only owner
+	can rw it. Nobody else can see it.
+	* configure.ac: bump to 1.0.2
+
+2019-03-12  dale@health.usf.edu
+
+	* configure.ac: Initial release, v 1.0.0
